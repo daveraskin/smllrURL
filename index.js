@@ -23,7 +23,7 @@ app.post("/links", function(req,res){
   }).then(function(url){
       db.url.find({ where: { url: longUrl } }).then(function(url){
       url.hash = newHash;
-      url.save().then(function() {var hashObject = {hash: newHash};
+      url.save().then(function() {var hashObject = {hash: req.headers.host+newHash};
       res.render("show", hashObject);});
     })
   })
@@ -32,7 +32,7 @@ app.post("/links", function(req,res){
 app.get("/:id", function(req, res){
   var id = req.params.id;
   db.url.find({where: {hash: id}}).then(function(link){
-   res.redirect("http://"+link.dataValues.url)
+   res.redirect(link.dataValues.url)
   });
 
 })
