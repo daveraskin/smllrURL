@@ -1,0 +1,21 @@
+<% include partials/header %>
+<div class="row">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>SMLLR</h1>
+    </div>
+  </div>
+</div>
+
+
+<form action="/links" method="post" role="form">
+  <legend></legend>
+
+  <div class="form-group">
+    <label for="">label</label>
+    <input type="text" class="form-control" name="hash" placeholder="Input field">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<% include partials/footer %>
