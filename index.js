@@ -23,7 +23,7 @@ app.post("/links", function(req,res){
   }).then(function(url){
       db.url.find({ where: { url: longUrl } }).then(function(url){
       url.hash = newHash;
-      url.save().then(function() {var hashObject = {hash: req.headers.host+newHash};
+      url.save().then(function() {var hashObject = {hash: req.headers.host+"/"+newHash};
       res.render("show", hashObject);});
     })
   })
